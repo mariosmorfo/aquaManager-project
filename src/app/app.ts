@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CageManagement } from './components/cage-management/cage-management';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { ListMenu } from "./components/list-menu/list-menu";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CageManagement],
+  imports: [RouterOutlet, RouterLink, ListMenu],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
