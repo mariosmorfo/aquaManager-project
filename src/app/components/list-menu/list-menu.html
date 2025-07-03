@@ -1,1 +1,5 @@
-<p>list-menu works!</p>
+<div class=" flex list-group mt-10 ml-10">
+  @for (entry of menu; track entry) {
+    <a [routerLink]="entry.linkName" [routerLinkActive]="['active']">{{entry.text}}</a>
+  }
+</div>
