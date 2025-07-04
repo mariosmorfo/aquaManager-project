@@ -1,9 +1,10 @@
 <mat-list>
   <mat-list-item *ngFor="let cage of cageList">
     <span matListItemTitle>{{ cage }}</span>
+    <button>delete</button>   
   </mat-list-item>
 </mat-list>
 
 <div>
-  <button mat-button (click)="addCage()">ADD CAGE</button>
+  <button class="ml-2" mat-button (click)="addCage()">ADD CAGE</button>
 </div>
