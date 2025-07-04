@@ -1,4 +1,16 @@
-<div class="flex justify-center items-center">
-   <label for="cage">Fish</label>
-   <input class="ml-3 border rounded " id="cage" type="text">
-</div>
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Select Cage</mat-label>
+  <mat-select [(value)]="selectedCage">
+    <mat-option *ngFor="let cage of cages" [value]="cage">
+      {{ cage }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
