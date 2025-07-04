@@ -1,5 +1,15 @@
-<div class=" flex list-group mt-10 ml-10">
-  @for (entry of menu; track entry) {
-    <a [routerLink]="entry.linkName" [routerLinkActive]="['active']">{{entry.text}}</a>
-  }
+<div class="w-64 bg-white shadow rounded-md border border-gray-200">
+  <ul>
+    @for (entry of menu; track entry) {
+      <li>
+        <a
+          [routerLink]="entry.linkName"
+          routerLinkActive="bg-blue-100 text-blue-700 font-medium"
+          class="block px-4 py-2 border-b border-gray-200 hover:bg-blue-50 hover:text-blue-600 transition"
+        >
+          {{ entry.text }}
+        </a>
+      </li>
+    }
+  </ul>
 </div>
