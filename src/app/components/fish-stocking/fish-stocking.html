@@ -6,11 +6,18 @@
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 
-<mat-form-field appearance="fill">
+<mat-form-field class="ml-3">
   <mat-label>Select Cage</mat-label>
-  <mat-select [(value)]="selectedCages">
-    <mat-option *ngFor="let cage of cages" [value]="cage">
-      {{ cage }}
-    </mat-option>
-  </mat-select>
+    <mat-select [(value)]="selectedCages">
+      <mat-option *ngFor="let cage of cages" [value]="cage">
+        {{ cage }}
+      </mat-option>
+    </mat-select>
 </mat-form-field>
+
+<mat-form-field class="Fish Number ml-3">
+  <mat-label>Fish Number</mat-label>
+  <input matInput type="number" [formControl]="showDelay"
+  aria-label="Adds a delay between hovering over the button and displaying the tooltip">
+</mat-form-field>
+
