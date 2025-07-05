@@ -45,6 +45,12 @@ export class FishStocking {
     }));
   }
 
+  /**
+  * Collects and submits fish stocking records for the selected date.
+  * 
+  * Filters out cages with no fish number entered and logs a summary
+  */
+
   submitStocking() {
     const result = {
       date: this.selectedDate,
