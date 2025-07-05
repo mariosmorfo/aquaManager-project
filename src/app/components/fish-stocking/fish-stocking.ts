@@ -10,6 +10,10 @@ import { CommonModule } from '@angular/common';
 import {  FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+/**
+ * FishStocking component allows the user to select a date, cage, and number of fish.
+ * Uses Reactive Forms to collect input and interacts with CageService to load cage options.
+ */
 @Component({
   selector: 'app-fish-stocking',
   standalone: true,
@@ -21,16 +25,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class FishStocking {
 constructor(private cageService: CageService) {}
 
+ /** Selected cage(s) from the multi-select dropdown */
 selectedCages: string[] = [];
+
+  /** Selected date from the date picker */
 selectedDate: Date | null = null;
 
+/** Form control for the fish number input; initialized to 0 */
 showFishNumber = new FormControl(0);
 
-
+/** List of available cage names loaded from the service */
 cages: string[] = [];
 
+ /**
+   * Lifecycle hook that runs on component init.
+   * Loads the list of cage names from CageService.
+   */
 ngOnInit(){
-   console.log('Loaded cages:', this.cages);
+  console.log('Loaded cages:', this.cages);
   this.cages = this.cageService.getCages();
 }
 
