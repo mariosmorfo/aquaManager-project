@@ -16,7 +16,6 @@ export class CageManagement {
 
   editIndexMap: { [index: number]: boolean } = {};
   editValues: { [index: number]: string } = {};
-
   constructor(private cageService: CageService) {}
 
   get cageList(): string[] {
@@ -32,6 +31,19 @@ export class CageManagement {
     this.cageService.deleteCage(index);
     delete this.editIndexMap[index];
     delete this.editValues[index];
+  }
+
+   toggleEdit(index: number): void {
+    if (this.editIndexMap[index]) {
+      // Save action
+      const newName = this.editValues[index];
+      this.cageService.renameCage(index, newName);
+      this.editIndexMap[index] = false;
+    } else {
+      // Enter edit mode
+      this.editValues[index] = this.cageList[index];
+      this.editIndexMap[index] = true;
+    }
   }
 
  
