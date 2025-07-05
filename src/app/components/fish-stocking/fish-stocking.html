@@ -8,7 +8,7 @@
 
 <mat-form-field appearance="fill">
   <mat-label>Select Cage</mat-label>
-  <mat-select [(value)]="selectedCage">
+  <mat-select [(value)]="selectedCages">
     <mat-option *ngFor="let cage of cages" [value]="cage">
       {{ cage }}
     </mat-option>
