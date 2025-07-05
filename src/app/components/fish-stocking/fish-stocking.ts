@@ -6,28 +6,31 @@ import {provideNativeDateAdapter} from '@angular/material/core';
 import { CageService } from '../../services/cage';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {  FormControl } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-fish-stocking',
   standalone: true,
-  imports: [MatDatepickerModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, MatListModule, FormsModule, CommonModule],
+  imports: [MatDatepickerModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, CommonModule, ReactiveFormsModule],
   templateUrl: './fish-stocking.html',
     providers: [provideNativeDateAdapter()],
   styleUrl: './fish-stocking.css'
 })
 export class FishStocking {
+constructor(private cageService: CageService) {}
 
 selectedCages: string[] = [];
-// selectedDate: Date | null = null;
-constructor(private cageService: CageService) {}
+selectedDate: Date | null = null;
+
+showFishNumber = new FormControl(0);
+
 
 cages: string[] = [];
 
 ngOnInit(){
-  //  console.log('Loaded cages:', this.cages);
+   console.log('Loaded cages:', this.cages);
   this.cages = this.cageService.getCages();
 }
 
