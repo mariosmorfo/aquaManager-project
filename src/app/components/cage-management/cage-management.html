@@ -3,7 +3,9 @@
     <span matListItemTitle *ngIf="!editIndexMap[i]">{{ cage }}</span>
     <input *ngIf="editIndexMap[i]" [(ngModel)]="editValues[i]" />
 
-    
+    <button mat-button color="primary" (click)="toggleEdit(i)">
+      {{ editIndexMap[i] ? 'Save' : 'Edit' }}
+    </button>
 
     <button mat-button color="warn" (click)="deleteCage(i)">Delete</button>
   </mat-list-item>
