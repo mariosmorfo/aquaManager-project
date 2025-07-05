@@ -1,7 +1,11 @@
 <mat-list>
-  <mat-list-item *ngFor="let cage of cageList">
-    <span matListItemTitle>{{ cage }}</span>
-    <button>delete</button>   
+  <mat-list-item *ngFor="let cage of cageList; let i = index">
+    <span matListItemTitle *ngIf="!editIndexMap[i]">{{ cage }}</span>
+    <input *ngIf="editIndexMap[i]" [(ngModel)]="editValues[i]" />
+
+    
+
+    <button mat-button color="warn" (click)="deleteCage(i)">Delete</button>
   </mat-list-item>
 </mat-list>
 
