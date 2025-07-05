@@ -9,6 +9,8 @@ import { MatOptionModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 import {  FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 /**
  * FishStocking component allows the user to select a date, cage, and number of fish.
@@ -17,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-fish-stocking',
   standalone: true,
-  imports: [MatDatepickerModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, CommonModule, ReactiveFormsModule],
+  imports: [MatDatepickerModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, CommonModule, ReactiveFormsModule, FormsModule, MatButtonModule],
   templateUrl: './fish-stocking.html',
     providers: [provideNativeDateAdapter()],
   styleUrl: './fish-stocking.css'
@@ -44,6 +46,12 @@ cages: string[] = [];
 ngOnInit(){
   console.log('Loaded cages:', this.cages);
   this.cages = this.cageService.getCages();
+}
+printStockingData() {
+  console.log(' Fish Stocking Info:');
+  console.log('Date:', this.selectedDate);
+  console.log('Selected Cage:', this.selectedCages);
+  console.log('Fish Number:', this.showFishNumber.value);
 }
 
   
