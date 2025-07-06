@@ -36,12 +36,23 @@ This project is part of a front-end technical task. It offers a user-friendly in
 
 ---
 
+## To view inserted data and test output:
+
+Press F12 to open your browser's Developer Tools and:
+
+View localStorage entries under the Application tab
+
+See submitted records and validation results in the Console tab via console.log()
+
+---
+
 ## Architecture
 
 - **Framework**: Angular v20
 - **Routing**: Configured in `app.routes.ts`
 - **UI**: Angular Material (`mat-table`, `mat-form-field`, `datepicker`, etc.)
 - **State Management**: `CageService` holds cage state in memory
+
 ---
 
 ## Directory Structure
