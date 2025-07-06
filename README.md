@@ -68,15 +68,17 @@ Designing clean localStorage key strategies for date-based stocking data.
 Refactoring nested if statements into clearer early-return structures.
 
 
-### 1. Clone and install dependencies
+## Clone and install dependencies
 
 
 git clone https://github.com/mariosmorfo/aquaManager-project.git
 
 cd aquaManager-project
+
 npm install
 
 ## Run the development server
 
 ng serve 
+
 App will be available at http://localhost:4200
