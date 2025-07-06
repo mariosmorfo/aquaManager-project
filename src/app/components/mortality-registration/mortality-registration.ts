@@ -99,7 +99,7 @@ export class MortalityRegistration {
   const stocked = stockingData.find((s: any) => s.cage === row.cage);
   const dead = row.dead;
 
-  if (dead == null) return; // Skip empty rows
+  if (dead == null) return; 
 
   if (!stocked || Number(stocked.fishNumber) === 0) {
     if (dead > 0) {
