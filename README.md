@@ -70,7 +70,7 @@ Refactoring nested if statements into clearer early-return structures.
 
 ### 1. Clone and install dependencies
 
-```bash
+
 git clone https://github.com/mariosmorfo/aquaManager-project.git
 cd aquaManager-project
 npm install
