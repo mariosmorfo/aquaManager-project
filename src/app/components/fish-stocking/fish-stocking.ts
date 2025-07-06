@@ -49,11 +49,6 @@ export class FishStocking {
 
   constructor(private cageService: CageService) {};
 
-  /**
-  * Lifecycle hook that runs on component load.
-  * Loads cage names and sets up the initial stocking table rows.
-  */
-
   ngOnInit() {
     this.cages = this.cageService.getCages();
     this.cageStockingData = this.cages.map(cage => ({
@@ -91,7 +86,7 @@ export class FishStocking {
       records: this.cageStockingData.filter(row => row.fishNumber !== null)
     }
      const storageKey = 'stocking:' + this.selectedDate?.toISOString();
-      // localStorage.setItem(storageKey, JSON.stringify(result.records));
+      localStorage.setItem(storageKey, JSON.stringify(result.records));
       console.log('Stocking Submitted & Saved:', result);
    }
   }
