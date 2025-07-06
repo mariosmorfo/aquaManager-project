@@ -7,7 +7,6 @@
     <mat-hint>MM/DD/YYYY</mat-hint>
   </mat-form-field>
 
-
   <table mat-table [dataSource]="cageStockingData" class="mat-elevation-z8" *ngIf="selectedDate">
     <ng-container matColumnDef="cage">
       <th mat-header-cell *matHeaderCellDef>Cage</th>
@@ -23,7 +22,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
 
   <button mat-flat-button color="primary" (click)="submitStocking()">Submit</button>
 </div>

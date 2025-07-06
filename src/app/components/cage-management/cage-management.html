@@ -12,12 +12,11 @@
       <button mat-button color="primary" (click)="toggleEdit(i)">
         {{ editIndexMap[i] ? 'Save' : 'Edit' }}
       </button>
-      
       <button mat-button color="warn" (click)="deleteCage(i)">Delete</button>
     </td>
   </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
 <div style="margin-top: 10px;">
