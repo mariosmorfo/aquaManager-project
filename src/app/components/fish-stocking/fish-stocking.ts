@@ -78,13 +78,20 @@ export class FishStocking {
       alert('Please enter at least one fish number before submiting')
       return
     }  
+     const hasNegative = this.cageStockingData.some(
+      row => row.fishNumber !== null && row.fishNumber < 0
+    ) ;
+
+    if (hasNegative) {
+    alert(' Fish number cannot be negative. Please correct your entries.');
+    return;
+    }
      const result = {
       date: this.selectedDate,
       records: this.cageStockingData.filter(row => row.fishNumber !== null)
     }
-    
      const storageKey = 'stocking:' + this.selectedDate?.toISOString();
-      localStorage.setItem(storageKey, JSON.stringify(result.records));
+      // localStorage.setItem(storageKey, JSON.stringify(result.records));
       console.log('Stocking Submitted & Saved:', result);
    }
   }
