@@ -51,9 +51,34 @@ export class MortalityRegistration {
 
     this.mortalityData.forEach(row => {
       const match = stockingData.find((s: any) => s.cage === row.cage);
-      // if (!match) {
-      //   // row.dead = 0; 
-      // }
+    });
+  }
+  submitMortality(): void {
+    const key = 'stocking:' + this.selectedDate?.toISOString();
+    const stockingData = JSON.parse(localStorage.getItem(key) || '[]');
+
+    const issues: string[] = [];
+
+    this.mortalityData.forEach(row => {
+    const stocked = stockingData.find((s: any) => s.cage === row.cage);
+
+      if (row.dead != null && row.dead < 0) {
+          issues.push(` ${row.cage}: negative values not allowed`);
+      }
+      
+      if (stocked && row.dead != null && row.dead > stocked.fishNumber) {
+        issues.push(` ${row.cage}: ${row.dead} mortalities exceed the ${stocked.fishNumber} fish stocked`);
+      }
+    });
+
+    if (issues.length > 0) {
+      alert('Invalid mortalities:\n' + issues.join('\n'));
+      return;
+    }
+
+    console.log(' Mortality registered:', {
+      date: this.selectedDate,
+      records: this.mortalityData
     });
   }
 
