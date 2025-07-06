@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 export class CageService {
   private cages: string[] = [];
 
-
   getCages(): string[] {
     return this.cages;
   }
